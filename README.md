@@ -81,3 +81,24 @@ Before the era of Docker, we can virtualize something with the help of Virtualiz
 With Virtual Machines, there are 2 Operating systems i.e., Host OS and Guest OS because of which VM's are heavy weight. When we virtualize , we may not be able to use the entire power of hardware because of virtualization, now docker comes into picture.
 
 Add Deployment using Docker diagram.
+
+STEP 9: DOCKER IMAGES - COMMANDS
+
+--> docker images // displays all the images
+
+--> docker pull mysql // only pulls the images but will not run the container for it 
+
+--> docker search mysql  //To find out the different images present in the docker registry -- look for the official images
+
+--> Docker images are built in number of layers - layer with OS, layer with software, layer with Specification binary , to see the layers inside the image
+
+    docker image history in28min/hello-world-java:0.0.1.RELEASE --> //in28min/hello-world-java is the repository name and 0.0.1.RELEASE is the tag name
+
+                OR
+
+    docker image history image_id
+
+--> Details behind each of the images can be checked using docker inspect commmand
+
+    docker image inspect image_id
+
