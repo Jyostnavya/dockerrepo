@@ -46,4 +46,30 @@ docker run -p 5000:5000 in28min/hello-world-java:0.0.1.RELEASE
 docker run -p 5000:5000 in28min/hello-world-nodejs:0.0.1.RELEASE 
 
 *NOTE*
-Once you have a docker image, it doesnot matter whether it is image of python or java or nodejs application, you can run it in the same way 
+Once you have a docker image, it doesnot matter whether it is image of python or java or nodejs application, you can run it in the same way
+
+DETACHED MODE AND LOGS
+
+Launch up the container in detached mode ---> docker run -d -p 5000:5000 in28min/hello-world-nodejs:0.0.1.RELEASE
+
+command to check the logs --> docker logs container_id
+
+command to follow the logs with specific application  --> docker logs -f container_id
+
+DOCKER IMAGES AND CONTAINERS
+
+docker images //displays the list of images
+
+docker container ls //displays the list of running containers
+
+docker container ls -a //displays the list of all containers including the exited containers
+
+docker container stop container_id // stops the container
+
+** UNDERSTANDING DOCKER POPULARITY -- TOP 3 REASONS **
+
+1. Standardized Application Packaging - Same packaging for all types of application either java or python or JavaScript, you would build the docker image
+
+2. Multi Platform Support - Once the docker engine is installed, we can run the created docker images anywhere either on Local machines, data center, Cloud - AWS, Azure, GCP
+
+3. Light-weight Support - Containers are light- weight as compared to VM's, Isolate from one another
