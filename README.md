@@ -73,3 +73,11 @@ docker container stop container_id // stops the container
 2. Multi Platform Support - Once the docker engine is installed, we can run the created docker images anywhere either on Local machines, data center, Cloud - AWS, Azure, GCP
 
 3. Light-weight Support - Containers are light- weight as compared to VM's, Isolate from one another
+
+Before the era of Docker, we can virtualize something with the help of Virtualization
+
+(Add deployments using Virtual Machines diagram,see notes )
+
+With Virtual Machines, there are 2 Operating systems i.e., Host OS and Guest OS because of which VM's are heavy weight. When we virtualize , we may not be able to use the entire power of hardware because of virtualization, now docker comes into picture.
+
+Add Deployment using Docker diagram.
