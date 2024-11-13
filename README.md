@@ -102,3 +102,57 @@ STEP 9: DOCKER IMAGES - COMMANDS
 
     docker image inspect image_id
 
+--> Removing the images on the docker -- to remove an image there should not be any running containers or stopped containers
+
+    docker image remove mysql // remove the image immeadiately as there is no existing container for pulled images, basically it removes the image from the local machine not the docker hub
+
+    or
+
+    If there is a running container, we have stop the container using the command "docker container stop container_id"  then only we can remove the container first by using the command "docker container rm container_id" 
+    
+    then try removing the image by using the command :
+
+    docker image remove image_id (or) docker image remove in28min/hello-world-java:0.0.1.RELEASE
+
+** LEARNING DOCKER CONTAINERS --COMMANDS **
+
+--> docker run -d -p 5000:5000 nginx is the shortcut for the command "docker container run -d -p 5000:5000 nginx" // in detached mode, containers will be created and are upend running
+
+--> docker container ls // shows the running containers
+
+--> docker container ls -a  //shows all the containers regardless of whether it is running container or exited container
+
+--> docker container pause container_id  //pauses the container -- In this stage, the container will not serve any request, if we refresh -- it will just hang without any output
+
+--> docker container unpause container_id  //unpauses the container, once refreshed -- we can see output on the port assigned
+
+DIFFERENCE BETWEEN DOCKER CONTAINER STOP AND DOCKER CONTAINER KILL
+
+docker run -d -p 5000:5000 nginx
+
+docker container stop container_id  // allows some time to shutdown the application gracefully. In technical terms, we are sending a signal to the container called sigterm
+
+check the logs of the container --> docker container logs -f container_id
+
+docker container kill container _id  // doesnot give time to shutdown the application gracefully. In technical terms, when we are killing the container --the signal we are sending to a container called sigkill means stop everything and drop there 
+
+docker container inspect container_id // holds the details of the container
+
+docker container prune  // removes all the stopped containers
+
+** Learning Docker commands - system and stats ** 
+
+--> docker system df // shows the docker disk usage
+
+--> docker system events // shows the commands which are running on the container
+
+--> docker system prune -a //deletes all the stooped containers and all the images without the atlease 1 container associated with it, also removes the network not used by atleast 1 container and build cache
+
+--> docker system info //displays the system wide information
+
+---> docker stats container_id //shows the stats of that particular container_id including how much memory, CPU is used
+
+docker container run -d -p 5000:5000 -m 6m --cpu-quota=50000 bitnami/java //once the application starts, reduces the cpu utilization and memory
+
+
+
