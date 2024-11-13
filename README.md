@@ -32,7 +32,7 @@ running version of this image "in28min/hello-world-python:0.0.1.RELEASE"--contai
 For one image, we have a lot of containers which are running
 
 -p 5000:5000 --> Whenever we run a container, it is a part of internal network called Bridge by default all the containers run inside the bridge network
-Containers cannot be accessed unless the port is exposed, consider the scenario here 5000:5000, the container 5000(right side) is mapped to host port(left side) and option which enable us to do this is -p, short cut for --publish
+Containers cannot be accessed unless the port is exposed, consider the scenario here 5000:5000, the container port 5000(right side) is mapped to host port(left side) and option which enable us to do this is -p, short cut for --publish
 
 * MULTIPLE INSTANCES OF THE SAME APPLICATION RUNNING*
 
@@ -153,6 +153,20 @@ docker container prune  // removes all the stopped containers
 ---> docker stats container_id //shows the stats of that particular container_id including how much memory, CPU is used
 
 docker container run -d -p 5000:5000 -m 6m --cpu-quota=50000 bitnami/java //once the application starts, reduces the cpu utilization and memory
+
+STEP 12: Building Docker images for Python application
+
+cd directory
+
+docker build -t repository_name:tag_name . // builds the image tagged to specific --build context is sent to docker daemon and shows the step by step installation
+
+docker run -p -d host_port:container_port repository_name:tag_name  //creates the container 
+
+docker logs -f container_id // check the logs whether the container is upend running
+
+then check on the local host .
+
+
 
 
 
