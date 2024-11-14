@@ -10,23 +10,23 @@ STEP 2 : DEVOPS USE CASES
 
 STEP 3 : DOCKER CONTAINERS
 
-docker run -p 5000:5000 in28min/hello-world-python:0.0.1.RELEASE
+docker run -p 5000:5000 jyostnavyajakkapu/hello-world-python:0.0.1.RELEASE
 
 command explaination 
 
---> in28min/hello-world-python:0.0.1.RELEASE --> path to the docker image which is stored on the docker registry called docker hub
+--> jyostnavyajakkapu/hello-world-python:0.0.1.RELEASE --> path to the docker image which is stored on the docker registry called docker hub
 
 --> Docker Hub is public docker registery which is accessible at https://hub.docker.com/. Docker Registery contains a lot of different repositories of different versions of differnt applications.
 
 --> When we specify the path to the image, wespecify 2 things:
 
-1. in28min/hello-world-python --> Docker Repository
+1. jyostnavyajakkapu/hello-world-python --> Docker Repository
 
 2. 0.0.1.RELEASE--> Specific tag, this specific image contains everything that we need to run the specific application, it contains all the releases like right software to run your application need,libraries and also the dependencies
 
-** Static version of the image "in28min/hello-world-python:0.0.1.RELEASE"on the repository or local machine-- image
+** Static version of the image "jyostnavyajakkapu/hello-world-python:0.0.1.RELEASE"on the repository or local machine-- image
 
-running version of this image "in28min/hello-world-python:0.0.1.RELEASE"--container **
+running version of this image "jyostnavyajakkapu/hello-world-python:0.0.1.RELEASE"--container **
 
 *NOTE* 
 
@@ -37,21 +37,20 @@ Containers cannot be accessed unless the port is exposed, consider the scenario 
 
 STEP 4 : MULTIPLE INSTANCES OF THE SAME APPLICATION RUNNING*
 
-  docker run -p 5000:5000 in28min/hello-world-python:0.0.1.RELEASE
+  docker run -p 5000:5000 jyostnavyajakkapu/hello-world-python:0.0.1.RELEASE
 
-  docker run -p 5001:5000 in28min/hello-world-python:0.0.1.RELEASE  // Running the application on different ports
+  docker run -p 5001:5000 jyostnavyajakkapu/hello-world-python:0.0.1.RELEASE  // Running the application on different ports
   
+  docker run -p 5003:5000 jyostnavyajakkapu/hello-world-java:0.0.1.RELEASE 
 
-
-docker run -p 5000:5000 in28min/hello-world-java:0.0.1.RELEASE 
-docker run -p 5000:5000 in28min/hello-world-nodejs:0.0.1.RELEASE 
+  docker run -p 5004:5000 jyostnavyajakkapu/hello-world-nodejs:0.0.1.RELEASE 
 
 *NOTE*
 Once you have a docker image, it doesnot matter whether it is image of python or java or nodejs application, you can run it in the same way
 
 STEP 5 : DETACHED MODE AND LOGS
 
-Launch up the container in detached mode ---> docker run -d -p 5000:5000 in28min/hello-world-nodejs:0.0.1.RELEASE
+Launch up the container in detached mode ---> docker run -d -p 5000:5000 jyostnavyajakkapu/hello-world-nodejs:0.0.1.RELEASE
 
 command to check the logs --> docker logs container_id
 
@@ -93,7 +92,7 @@ STEP 9: DOCKER IMAGES - COMMANDS
 
 --> Docker images are built in number of layers - layer with OS, layer with software, layer with Specification binary , to see the layers inside the image
 
-    docker image history in28min/hello-world-java:0.0.1.RELEASE --> //in28min/hello-world-java is the repository name and 0.0.1.RELEASE is the tag name
+    docker image history jyostnavyajakkapu/hello-world-java:0.0.1.RELEASE --> //jyostnavyajakkapu/hello-world-java is the repository name and 0.0.1.RELEASE is the tag name
 
                 OR
 
@@ -113,7 +112,7 @@ STEP 9: DOCKER IMAGES - COMMANDS
     
     then try removing the image by using the command :
 
-    docker image remove image_id (or) docker image remove in28min/hello-world-java:0.0.1.RELEASE
+    docker image remove image_id (or) docker image remove jyostnavyajakkapu/hello-world-java:0.0.1.RELEASE
 
 STEP 10 : LEARNING DOCKER CONTAINERS --COMMANDS 
 
