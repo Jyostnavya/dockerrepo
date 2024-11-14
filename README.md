@@ -1,13 +1,14 @@
-Docker Installation
-Step 1: This setion guides through the Docker Desktop installation on your machine. Please follow the offical documentation link to install https://docs.docker.com/engine/install/
+STEP1 : Docker Installation
 
-Step 2: After installation, restart the machine then open Docker Desktop application.
+ 1: This setion guides through the Docker Desktop installation on your machine. Please follow the offical documentation link to install https://docs.docker.com/engine/install/
 
-Step 3: Check the version of Docker by launching the terminal, if you are on commandprompt for Windows or terminal for Mac and for other OS launch up the shell--> docker --version
+ 2: After installation, restart the machine then open Docker Desktop application.
 
-*DEVOPS USE CASES*
+ 3: Check the version of Docker by launching the terminal, if you are on commandprompt for Windows or terminal for Mac and for other OS launch up the shell--> docker --version
 
-*DOCKER CONTAINERS*
+STEP 2 : DEVOPS USE CASES
+
+STEP 3 : DOCKER CONTAINERS
 
 docker run -p 5000:5000 in28min/hello-world-python:0.0.1.RELEASE
 
@@ -34,7 +35,7 @@ For one image, we have a lot of containers which are running
 -p 5000:5000 --> Whenever we run a container, it is a part of internal network called Bridge by default all the containers run inside the bridge network
 Containers cannot be accessed unless the port is exposed, consider the scenario here 5000:5000, the container port 5000(right side) is mapped to host port(left side) and option which enable us to do this is -p, short cut for --publish
 
-* MULTIPLE INSTANCES OF THE SAME APPLICATION RUNNING*
+STEP 4 : MULTIPLE INSTANCES OF THE SAME APPLICATION RUNNING*
 
   docker run -p 5000:5000 in28min/hello-world-python:0.0.1.RELEASE
 
@@ -48,7 +49,7 @@ docker run -p 5000:5000 in28min/hello-world-nodejs:0.0.1.RELEASE
 *NOTE*
 Once you have a docker image, it doesnot matter whether it is image of python or java or nodejs application, you can run it in the same way
 
-DETACHED MODE AND LOGS
+STEP 5 : DETACHED MODE AND LOGS
 
 Launch up the container in detached mode ---> docker run -d -p 5000:5000 in28min/hello-world-nodejs:0.0.1.RELEASE
 
@@ -56,7 +57,7 @@ command to check the logs --> docker logs container_id
 
 command to follow the logs with specific application  --> docker logs -f container_id
 
-DOCKER IMAGES AND CONTAINERS
+STEP 6 : DOCKER IMAGES AND CONTAINERS
 
 docker images //displays the list of images
 
@@ -66,7 +67,7 @@ docker container ls -a //displays the list of all containers including the exite
 
 docker container stop container_id // stops the container
 
-** UNDERSTANDING DOCKER POPULARITY -- TOP 3 REASONS **
+STEP 7 : UNDERSTANDING DOCKER POPULARITY -- TOP 3 REASONS **
 
 1. Standardized Application Packaging - Same packaging for all types of application either java or python or JavaScript, you would build the docker image
 
@@ -114,7 +115,7 @@ STEP 9: DOCKER IMAGES - COMMANDS
 
     docker image remove image_id (or) docker image remove in28min/hello-world-java:0.0.1.RELEASE
 
-** LEARNING DOCKER CONTAINERS --COMMANDS **
+STEP 10 : LEARNING DOCKER CONTAINERS --COMMANDS 
 
 --> docker run -d -p 5000:5000 nginx is the shortcut for the command "docker container run -d -p 5000:5000 nginx" // in detached mode, containers will be created and are upend running
 
@@ -126,7 +127,7 @@ STEP 9: DOCKER IMAGES - COMMANDS
 
 --> docker container unpause container_id  //unpauses the container, once refreshed -- we can see output on the port assigned
 
-DIFFERENCE BETWEEN DOCKER CONTAINER STOP AND DOCKER CONTAINER KILL
+STEP 11 : DIFFERENCE BETWEEN DOCKER CONTAINER STOP AND DOCKER CONTAINER KILL
 
 docker run -d -p 5000:5000 nginx
 
@@ -140,7 +141,7 @@ docker container inspect container_id // holds the details of the container
 
 docker container prune  // removes all the stopped containers
 
-** Learning Docker commands - system and stats ** 
+STEP 12 : Learning Docker commands - system and stats 
 
 --> docker system df // shows the docker disk usage
 
@@ -154,7 +155,7 @@ docker container prune  // removes all the stopped containers
 
 docker container run -d -p 5000:5000 -m 6m --cpu-quota=50000 bitnami/java //once the application starts, reduces the cpu utilization and memory
 
-STEP 12: Building Docker images for Python application
+STEP 13 : Building Docker images for Python application
 
 cd directory
 
@@ -162,9 +163,51 @@ docker build -t repository_name:tag_name . // builds the image tagged to specifi
 
 docker run -p -d host_port:container_port repository_name:tag_name  //creates the container 
 
-docker logs -f container_id // check the logs whether the container is upend running
+docker logs -f container_id // check the logs whether the container is upend running then check on the local host .
 
-then check on the local host .
+STEP 14 : PUSHING PYTHON APP DOCKER IMAGES TO DOCKER HUB
+
+mkdir my-python-app
+
+cd my-python-app
+
+touch Dockerfile
+
+vi Dockerfile  Press i to insert data and :wq to write and quit 
+
+add requirements.txt and app.py files to the folder
+
+requirements.txt
+
+flask
+requests
+
+app.py
+
+# app.py
+from flask import Flask
+app = Flask(__name__)
+
+@app.route('/')
+def hello_world():
+    return 'Hello, Docker!'
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)
+
+
+docker build -t <docker-hub-username>/my-python-app:latest .
+
+docker run -p 5000:5000 <docker-hub-username>/my-python-app:latest
+
+Once the image is created, we can push the image to docker hub
+
+1. docker login
+
+2. docker push <docker-username>/my-python-app:latest
+
+3. Once the iamges is pushed, refresh the docker hub and you can see the docker image on docker hub
+
 
 
 
