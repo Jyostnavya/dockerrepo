@@ -8,6 +8,10 @@ STEP1 : Docker Installation
 
 STEP 2 : DEVOPS USE CASES
 
+Consider you are a part of DevOps teams working on the amazing project, building APIs in Java, Python, JavaScript. You are ready with the basic versions of all these applications, and you would like to deploy them quickly to the QA environment, also you have a new team member pairing up with you who wants to understand how to deploy applications to QA. So you both sit at a desk Launch up terminal and ready to execute few commands. If you are on Mac, launch terminal, on Windows launch command prompt and on other OS launch Shell.
+
+docker --version
+
 STEP 3 : DOCKER CONTAINERS
 
 docker run -p 5000:5000 jyostnavyajakkapu/hello-world-python:0.0.1.RELEASE
