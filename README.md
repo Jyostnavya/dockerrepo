@@ -221,6 +221,63 @@ Overriding in ENTRYPOINT is much more complex and can be done with the command "
 
 STEP 16:DOCKER AND MICRO-SERVICES
 
+MICROSERVICES 
+
+1. REST
+
+2.  & Small well chosen deployable units
+
+3.  & Cloud Enabled
+
+Advantages of Microservices Architecture:
+
+1. Enables to adapt new technology & processes very easily
+
+2. Dynamic scaling -- for example amazon, they dont have the same load like hugh amount on festive season and less load during the normal day so if microservices are cloud then they can be scaled dynamically and you can procure hardware and release it dynamically
+
+3. Faster release cycles
+
+Docker makes the life easier with microservices:
+
+1. Easy development
+   i. Adapts new technology and process -- zero worry about deployment issues
+   ii. Fewer environment issues -- No more "It works in the local"
+
+2. Easier operations :  Consistent deployment automation across different environments and differnet technologies
+
+STEP 17 : Using link to connnect microservices
+
+1. Build the images for currncy_exchange "docker build -t jyostnavyajakkapu/currency-exchange:0.0.1-RELEASE ." and and currency_conversion "docker build -t jyostnavyajakkapu/currency-conversion:0.0.1-RELEASE ."
+
+2. docker run -d -p 8100:8100 --name=currency-conversion jyostnavyajakkapu/currency-conversion:0.0.1-RELEASE
+
+3. Remove the currency-conversion container using the command " docker container stop container_id " 
+ docker run -d -p 8100:8100 --env CURRENCY_EXCHANGE_SERVICE_HOST=http://currency-exchange --name=currency-conversion --link currency-exchange jyostnavyajakkapu/currency-conversion:0.0.1-RELEASE
+
+STEP 18 : Using Custom Networking to connect microservices
+
+docker network create currency-network
+
+docker container stop currency-exchange
+
+docker container stop currency-conversion
+
+docker rm currency-exchange
+
+docker rm currency-conversion
+
+docker run -d -p 8000:8000 --name=currency-exchange --network=currency-network jyostnavyajakkapu/currency-exchange:0.0.1-RELEASE
+
+docker run -d -p 8100:8100 --env CURRENCY_EXCHANGE_SERVICE_HOST=http://currency-exchange --name=currency-conversion --network=currency-network jyostnavyajakkapu/currency-conversion:0.0.1-RELEASE
+
+STEP 19: Using docker compose to simplify Microservices Launch
+
+
+
+   
+
+
+
 
 
 
