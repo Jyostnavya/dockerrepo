@@ -207,6 +207,20 @@ Once the image is created, we can push the image to docker hub
 
 3. Once the iamges is pushed, refresh the docker hub and you can see the docker image on docker hub
 
+STEP 15: BUILDING EFFICIENT DOCKER IMAGES - IMPROVING LAYER CACHING
+
+Layers are cached, which makes it fast to build the docker image and push the image to he docker hub and pull the image to wherever you want to deploy it.
+
+STEP 15 : UNDERSTANDING ENTRYPOINT VS CMD 
+
+With CMD, whatever you pass through the command line will replace with the instructions you will execute and the application will not launch up. 
+
+However with ENTRYPOINT, doesnot worry about command line arguments -- static
+
+Overriding in ENTRYPOINT is much more complex and can be done with the command " docker run -d -p --entrypoint = "" 5000:5000 jyostnavyajakkapu/my-hello-world:0.0.1.RELEASE "
+
+STEP 16:DOCKER AND MICRO-SERVICES
+
 
 
 
