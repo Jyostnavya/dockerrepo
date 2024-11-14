@@ -272,6 +272,42 @@ docker run -d -p 8100:8100 --env CURRENCY_EXCHANGE_SERVICE_HOST=http://currency-
 
 STEP 19: Using docker compose to simplify Microservices Launch
 
+docker container stop currency-exchange
+
+docker container stop currency-conversion
+
+cd current_directory 
+
+docker-compose up 
+
+docker-compose up -d //launches the containers in detached mode
+
+docker container ls // shows 2 containers
+
+docker network ls --> shows all the networks created including the microservices_currency-compose-network which is created by docker compose where in microservices is the name of the folder and currency-compose-network is the name of the network 
+
+docker network inspect microservices_currency-compose-network
+
+docker-compose down //stops the running containers
+
+docker-compose events //shows all the events happenning
+
+docker-compose config // shows the configuration which is used to launch the docker compose.Used to validate the yaml file 
+
+docker-compose images // shows the list of images which are used by docker compose
+
+docker-compose ps //lists downs the containers
+
+docker-compose top //gives the top process which are running in each of the container
+
+docker-compose pause
+
+docker-compose unpause
+
+docker-compose stop
+
+docker-compose kill
+
 
 
    
